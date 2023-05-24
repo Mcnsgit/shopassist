@@ -1,0 +1,1 @@
+import ShoppingAssistantForm from './ShoppingAssistantForm';
