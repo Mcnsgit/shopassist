@@ -5,11 +5,9 @@ import {
   LiveReload,
   Meta,
   Outlet,
-  ScrollRestoration,
   Scripts,
+  ScrollRestoration,
 } from "@remix-run/react";
-import 'bootstrap/dist/css/bootstrap.min.css';
-import ShoppingAssistantForm from "virtual-shopping-assistant/frontend/ShoppingAssistantForm";
 
 export const links: LinksFunction = () => [
   ...(cssBundleHref ? [{ rel: "stylesheet", href: cssBundleHref }] : []),
@@ -21,12 +19,6 @@ export default function App() {
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
-        <link
-          href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
-          rel="stylesheet"
-          integrity="sha384-KyZXEAg3QhqLMpG8r+Knujsl7/1L_dstPt3HV5HzF6Gvk/e3U2Q4U+9cuEnJoa3D"
-          crossOrigin="anonymous"
-        />
         <Meta />
         <Links />
       </head>
@@ -37,15 +29,5 @@ export default function App() {
         <LiveReload />
       </body>
     </html>
-  );
-}
-
-function Root() {
-  return (
-    <div>
-      <h1>Personalised Virtual Shopping Assistant</h1>
-      <ShoppingAssistantForm />
-      {/* Add other components here */}
-    </div>
   );
 }

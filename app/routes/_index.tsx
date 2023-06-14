@@ -1,54 +1,39 @@
-import { useRouteLoaderData } from "@remix-run/react";
-import { HeadersFunction, LoaderFunction } from "@remix-run/node";
-import { Link } from "react-router-dom";
-import type { LinksFunction } from "@remix-run/node";
-
-import stylesUrl from "~/styles/index.css";
-
-export const links: LinksFunction = () => [
-  { rel: "stylesheet", href: stylesUrl },
-];
-
-export default function IndexRoute() {
-  return <div>Hello Index Route</div>;
-}
-
-export let loader = async () => {
-  // Load data for your index route here
-  return {};
-};
+import {  } from '@geist-ui/react';
+import { Form, Input, Button } from "@geist-ui/react";
+import type { SetStateAction} from "react";
+import { useState } from "react";
 
 export default function Index() {
-  let data = useRouteData();
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const handleSearch = (event: { preventDefault: () => void; }) => {
+    event.preventDefault();
+    // TODO: Implement the search functionality
+    console.log("Search query:", searchQuery);
+  };
 
   return (
     <div>
-      <h2>Welcome to the Personalized Shopping Assistant</h2>
-      <nav>
-        <Link to="/products">View Products</Link>
-        <Link to="/search">Search Products</Link>
-      </nav>
+      <h1>Virtual Shopping Assistant</h1>
+      <Form onSubmit={handleSearch}>
+        <Form.Item label="Search">
+          <Input
+            value={searchQuery}
+            onChange={(event: { target: { value: SetStateAction<string>; }; }) => setSearchQuery(event.target.value)}
+            placeholder="Search for products"
+          />
+        </Form.Item>
+        <Form.Item>
+          <Button htmlType="submit" type="success">
+            Search
+          </Button>
+        </Form.Item>
+      </Form>
+      <div>
+        <h2>Product Recommendations</h2>
+        {/* TODO: Display product recommendations here */}
+      </div>
     </div>
   );
 }
-<form method="post">
-<div>
-  <label>
-    Name: <input type="text" name="name" />
-  </label>
-</div>
-<div>
-  <label>
-    Content: <textarea name="content" />
-  </label>
-</div>
-<div>
-  <button type="submit" className="button">
-    Add
-  </button>
-</div>
-</form>;
-function useRouteData(): void {
-    throw new Error("Function not implemented.");
-}
-
+ 

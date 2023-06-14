@@ -1,27 +1,21 @@
-// app/routes/products.tsx
-import { useRouteLoaderData } from "@remix-run/react";
-import { useRouteData } from "@remix-run/react";
-
-export let loader = async () => {
-  // Load data for your products route here
-  return {};
-};
+import { Link, useParams } from 'react-router-dom';
+import { LoaderFunction } from '@remix-run/node';
+import { useRouteData }
 
 
-export default function Products({ args }: { args: []; }) {
-  let { products } = useRouteData();
 
+export default function Product(...args: []) {
   return (
-    <div>
-      <h2>Products</h2>
-      {products.map(product => (
-        <div key={product.id}>
-          <h3>{product.name}</h3>
-          <p>{product.description}</p>
-        </div>
-      ))}
-    </div>
+    <Container>
+      <Row>
+        <Col sm={8}>
+          <h2>Welcome to our shopping assistant</h2>
+          <p>Here you can find a variety of products tailored for your needs.</p>
+        </Col>
+        <Col sm={4}>
+          <Button variant="primary">Start Shopping</Button>
+        </Col>
+      </Row>
+    </Container>
   );
 }
-
-

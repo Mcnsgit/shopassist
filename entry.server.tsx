@@ -118,4 +118,3 @@ function handleBrowserRequest(
     setTimeout(abort, ABORT_DELAY);
   });
 }
-import 'bootstrap/dist/css/bootstrap.min.css'
